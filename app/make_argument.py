@@ -39,7 +39,7 @@ def generate_oral_argument(topic: str, position: str, round_num: int, total_roun
     if not api_key:
         raise ValueError("OPENAI_API_KEY not found in environment variables")
     
-    llm = OpenAI(api_key=api_key, temperature=0.7, model="gpt-4-turbo-preview")
+    llm = OpenAI(api_key=api_key, temperature=0.7, model="gpt-4o")
 
     argument_prompt = f"""
     You are participating in an oral debate. Your position is STRONGLY {position} the topic: "{topic}".
