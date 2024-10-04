@@ -59,6 +59,12 @@ This script will concatenate the debate audio files with added silence between s
 
 The `make_full_speech.sh` script (lines 1-53) provides a comprehensive solution for concatenating debate audio files with added silence between segments.
 
+You can convert the resulting mp3 file into a video for social media by using an online tool or simply something like this:
+
+```bash
+ffmpeg -i nonduality_is_not_enlightenment.mp3 -i image.png -filter_complex "[0:a]aformat=channel_layouts=mono,showwaves=s=1280x720:mode=line:rate=25:colors=0xFFFFFFFF|0x00000000,format=yuva420p[wave];[1][wave]overlay=W/2-w/2:H-h-50:format=auto" -c:v libx264 -c:a aac -b:a 192k -shortest output_video.mp4
+```
+
 
 ## License
 
