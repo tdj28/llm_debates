@@ -1,4 +1,4 @@
-from web_search import web_search
+from app.web_search import web_search
 from llama_index.program.openai import OpenAIPydanticProgram
 from llama_index.llms.openai import OpenAI
 from pydantic import BaseModel, Field
@@ -6,7 +6,7 @@ from typing import List
 from dotenv import load_dotenv
 import os
 import logging
-from debate_data_manager import DebateDataManager
+from app.debate_data_manager import DebateDataManager
 
 
 load_dotenv('../.env')
@@ -113,7 +113,7 @@ def research(topic: str, position: str, round_num: int, additional_context: str 
         sources=[{"title": result.title, "href": result.href} for result in search_results],
         bullet_points=unique_points
     )
-    
+
     return results
 
 # Example usage
