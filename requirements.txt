@@ -7,3 +7,4 @@ duckduckgo-search==6.2.13
 langchain-openai==0.2.1
 playwright==1.47.0
 pydantic-core==2.23.4
+llama_index==0.11.15

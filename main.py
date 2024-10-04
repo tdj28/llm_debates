@@ -13,9 +13,11 @@ load_dotenv()
 
 topic = "veganism"
 
+# First round of research
 research_results = research(topic)
 
-
+debate_prep_for = debate_prep(research_results["for"], "for")
+debate_prep_against = debate_prep(research_results["against"], "against")
 
 
 # def debate(topic, duration=300):
