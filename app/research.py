@@ -105,12 +105,12 @@ def research(topic: str, position: str, additional_context: str = None):
     return results
 
 # Example usage
-if __name__ == "__main__":
-    topic = "veganism"
-    position = "against"
+# if __name__ == "__main__":
+#     topic = "veganism"
+#     position = "against"
 
-    try:
-        condensed_research = research(topic, position)
-        print(condensed_research)
-    except Exception as e:
-        logger.error(f"An error occurred during research: {str(e)}")
+#     try:
+#         condensed_research = research(topic, position)
+#         print(condensed_research)
+#     except Exception as e:
+#         logger.error(f"An error occurred during research: {str(e)}")
