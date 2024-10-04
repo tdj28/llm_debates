@@ -94,7 +94,7 @@ def run_debate(topic: str, total_rounds: int = 5):
     # Save the full debate transcript
     manager.save_full_transcript(topic, debate_transcript)
 
-topic = "veganism"
+topic = "pet ownership"
 total_rounds = 4
 
 try:
