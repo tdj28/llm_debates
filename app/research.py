@@ -6,6 +6,8 @@ from typing import List
 from dotenv import load_dotenv
 import os
 import logging
+from debate_data_manager import DebateDataManager
+
 
 load_dotenv('../.env')
 
@@ -21,7 +23,7 @@ class ResearchSummary(BaseModel):
     """Represents a summary of research results."""
     bullet_points: List[BulletPoint] = Field(description="A list of bullet points summarizing the research")
 
-def research(topic: str, position: str, additional_context: str = None):
+def research(topic: str, position: str, round_num: int, additional_context: str = None):
     search_results = web_search(topic, position, additional_context)
 
     # LLM setup
@@ -101,6 +103,16 @@ def research(topic: str, position: str, additional_context: str = None):
 
     # Convert the final list of points to a string of bullet points
     results = "\n".join([f"• {point}" for point in unique_points])
+    
+    # After conducting research and generating bullet points
+    manager = DebateDataManager()
+    manager.add_round(
+        round_num=round_num,
+        position=position,
+        topic=topic,
+        sources=[{"title": result.title, "href": result.href} for result in search_results],
+        bullet_points=unique_points
+    )
     
     return results
 
